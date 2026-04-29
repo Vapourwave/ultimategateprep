@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GATE EC Prep Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="auth-screen" class="screen centered">
+    <div class="card auth-card">
+      <h1>GATE EC Mastery</h1>
+      <p>Sign in to save progress, streak, and personalized practice.</p>
+      <div class="auth-actions">
+        <button id="google-login" class="btn primary">Continue with Google</button>
+        <div class="separator">or</div>
+        <form id="email-form" class="email-form">
+          <input id="email-input" type="email" required placeholder="Enter email" />
+          <button type="submit" class="btn">Continue with Email</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="app-screen" class="screen hidden">
+    <header class="topbar">
+      <div>
+        <h2>Welcome, <span id="user-label">Learner</span></h2>
+        <p class="muted">Master one concept at a time.</p>
+      </div>
+      <div class="header-right">
+        <div class="mode-toggle">
+          <button id="learn-mode" class="btn mode active">Learn Mode</button>
+          <button id="practice-mode" class="btn mode">Practice Mode</button>
+        </div>
+        <select id="sort-select">
+          <option value="mastery">Mastery Order</option>
+          <option value="difficulty">Low → High Difficulty</option>
+          <option value="recent">Most Recent</option>
+        </select>
+      </div>
+    </header>
+
+    <section class="stats-grid">
+      <div class="card"><h3>Progress</h3><p id="progress-text">0 / 0 solved</p></div>
+      <div class="card"><h3>Streak</h3><p id="streak-text">0 days</p><small>Maintain by solving at least 10/day</small></div>
+      <div class="card"><h3>Today</h3><p id="today-count">0 questions</p></div>
+    </section>
+
+    <main class="layout">
+      <aside class="sidebar card">
+        <h3>Subjects</h3>
+        <ul id="subject-list"></ul>
+        <h3>Topics</h3>
+        <ul id="topic-list"></ul>
+      </aside>
+
+      <section class="question-wrap">
+        <div id="split-container" class="split-container">
+          <article class="card question-panel">
+            <div class="question-head">
+              <div>
+                <strong id="question-subject">-</strong>
+                <p id="question-topic" class="muted">-</p>
+              </div>
+              <span id="question-difficulty" class="badge">Difficulty 1</span>
+            </div>
+            <h3 id="question-text">Choose a subject/topic to begin.</h3>
+            <div class="question-actions">
+              <button id="refer-btn" class="btn">Refer</button>
+              <button id="solved-btn" class="btn primary">Mark Solved</button>
+              <button id="next-btn" class="btn">Next Question</button>
+            </div>
+          </article>
+
+          <aside id="refer-panel" class="refer-panel">
+            <div class="refer-top">
+              <button id="back-question" class="btn">Back to Question</button>
+              <a id="google-link" target="_blank" rel="noopener">Search on Google</a>
+            </div>
+            <iframe id="yt-frame" title="YouTube Refer"></iframe>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
